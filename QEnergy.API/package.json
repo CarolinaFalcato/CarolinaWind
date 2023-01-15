@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "@types/jquery": "3.3.33"
+  },
+  "dependencies": {
+    "mdb-ui-kit": "git+https://oauth2:bsd7W6gNpS2aQsr3LX3v@git.mdbootstrap.com/mdb/standard/mdb-ui-kit-pro-essential"
+  }
+}

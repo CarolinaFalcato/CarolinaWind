@@ -1,0 +1,52 @@
+﻿@using QEnergy.API.Models.Projects;
+@using QEnergy.API.TextResources;
+@using QEnergy.Core.Domain.Utils;
+@model PaginatedList<ProjectListViewModel>
+
+@{
+    ViewBag.Title = TextResources.ProjectsList_Title;
+    ViewBag.IsLoading = false;
+}
+
+<h4>@TextResources.ProjectsList_Title</h4>
+
+<div class="spacer" style="height: 15px;"></div>
+
+<div class="row mb-5">
+    <div class="col" id="ProjectsListFilter">
+        @await Html.PartialAsync("ListFilter")
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12 text-center mt-5" id="divSpinnerResults">
+        <div class="spinner-grow main-color" style="width: 5rem; height: 5rem;" role="status">
+            <span class="visually-hidden">@TextResources.Base_Loading</span>
+        </div>
+    </div>
+
+    <div class="col d-none" id="projectsTable">
+        @await Html.PartialAsync("ListTableResult")
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/js/projects.js")"></script>
+    <script type="text/javascript">
+
+        $(window).on("load", function () {
+            $(document).ready(function () {
+                $('#divSpinnerResults').hide();
+                $('#projectsTable').removeClass('d-none');
+            });
+
+            document.querySelectorAll('.form-outline').forEach((formOutline) => {
+                new mdb.Input(formOutline).init();
+            });
+
+            initializeTooltips();
+            initializePopConfirm();
+        });
+
+    </script>
+}

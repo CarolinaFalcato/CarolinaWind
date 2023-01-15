@@ -1,0 +1,433 @@
+﻿@charset "UTF-8";
+/* Insert your custom CSS styles */
+/* Massive replacement of all #4c6b99 to #034f84 */
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url("fonts/AvenirNextLTPro-Regular.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* GLOBAL */
+html * {
+    font-family: 'Avenir Next LT Pro';
+}
+
+body {
+    font-family: 'Avenir Next LT Pro' !important;
+    font-weight: 500;
+}
+
+p, .list li {
+    font-size: 18px;
+    color: #999999;
+}
+
+h3 {
+    font-family: "Avenir Next LT Pro";
+    font-weight: normal !important;
+    color: var(--main-color) !important;
+    font-size: 36px !important;
+}
+
+h4 {
+    font-family: "Avenir Next LT Pro";
+    font-weight: normal;
+    color: var(--main-color);
+    font-size: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 5px;
+    text-rendering: optimizelegibility;
+}
+
+.top-arrow-banner {
+    background-image: url("https://www.neocheck.com/sites/default/files/fondo-proceso-inicio.jpg");
+    height: 67px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.bottom-arrow-banner {
+    background-image: url("https://www.neocheck.com/sites/default/files/fondo-proceso-fin.jpg");
+    height: 69px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.work .description {
+    font-size: 11px;
+    font-style: italic;
+    font-family: "Avenir Next LT Pro !important";
+    line-height: 16px;
+    text-align: center;
+}
+
+* {
+    border-color: #e1e1e1;
+    border-style: solid;
+    border-width: 0;
+    zoom: 1;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* line 41, ../sass/_main.scss */
+.title-box {
+    border-bottom-width: 1px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+    .title-box:before {
+        background: #1e1e1e;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 0;
+        margin: 0 0 -1px;
+        position: absolute;
+        width: 40px;
+    }
+    /* line 57, ../sass/_main.scss */
+    .title-box.text-right:before {
+        left: auto;
+        right: 0;
+    }
+    /* line 61, ../sass/_main.scss */
+    .title-box.text-center:before {
+        left: 50%;
+        margin-left: -20px;
+    }
+    /* line 65, ../sass/_main.scss */
+    .title-box .title {
+        color: #7f7f7f;
+        font-weight: normal;
+        margin: 0 0 1px 0;
+        padding: 1px 0 0;
+    }
+
+.form-box {
+    background: #f2f2f2;
+    border-radius: 5px;
+    margin: 0 0 0 0;
+    padding: 27px 30px 25px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+    .alert .alert-icon {
+        display: block;
+        float: left;
+        margin: -5px 20px 0 0;
+    }
+        /* line 1040, ../sass/_typography.scss */
+        .alert .alert-icon:before {
+            font-size: 34px;
+        }
+    /* line 1044, ../sass/_typography.scss */
+    .alert.alert-default {
+        background-color: #555;
+        border: 1px solid #555;
+        color: #fff;
+    }
+
+.text-unknown,
+a.text-unknown:hover,
+.icon.text-unknown {
+    color: #777;
+}
+
+td.ok {
+    color: green;
+}
+
+td.failed {
+    color: red;
+}
+
+td.warning {
+    color: orange;
+}
+
+td.not_executed {
+    color: gray;
+}
+
+.input-text {
+    margin-bottom: 0px !important;
+}
+
+.textBoxAsLable {
+    background-color: #fff;
+    background: transparent;
+}
+
+.transition {
+    color: grey;
+}
+
+.iti__flag {
+    background-image: url("/lib/intl-tel-input/img/flags.png");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {
+        background-image: url("/lib/intl-tel-input/img/flags@2x.png");
+    }
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.main-color {
+    color: var(--main-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+.disabled-color {
+    color: var(--disabled-color);
+}
+
+
+.warning-color {
+    color: var(--warning-color);
+}
+
+.warning-color-row {
+    background-color: var(--warning-color-transparent) !important;
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.navbar-brand {
+    padding-top: 0px;
+}
+
+/* Custom CheckBox*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #7f7f7f;
+    -webkit-transition: .4s;
+    transition: .4s;
+    padding: 0px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: var(--main-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--main-color);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 25px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.form-check-input[type=checkbox]:checked {
+    background-color: var(--main-color) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--main-color) !important;
+}
+
+.form-switch .form-check-input:after {
+    filter: brightness(80%);
+    background-color: var(--secondary-color) !important;
+}
+
+.form-switch .form-check-input:checked[type=checkbox]:after {
+    background-color: var(--main-color) !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--main-color) !important;
+    font-weight: bold;
+}
+
+.sidenav-primary .sidenav-item .sidenav-link:hover, .sidenav-primary .sidenav-link:active, .sidenav-primary .sidenav-link:focus,
+.sidenav-link:active, .sidenav-link:focus, .sidenav-link:hover,
+.sidenav-primary .sidenav-link.active {
+    color: var(--main-color) !important;
+}
+
+.select-option-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.sidenav-link {
+    font-size: 0.9rem;
+}
+
+    .sidenav-link i {
+        color: var(--main-color) !important;
+    }
+
+.sidenav-collapse .sidenav-link {
+    font-size: 0.8rem;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 250px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.btn-secondary.focus, .btn-secondary:focus, .btn-secondary:hover {
+    background-color: var(--secondary-color) !important;
+}
+
+.wizard li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+}
+
+.wizard li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1;
+}
+
+.wizard li.active:before,
+.wizard li.active:after {
+    background: var(--main-color);
+    color: var(--main-color);
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.5rem 0.5rem;
+}
+
+.table > thead > tr > th {
+    border-bottom-color: transparent !important;
+}
+
+.form-outline .form-control {
+    background: #FFFFFF;
+}
+
+.doughnut {
+    margin: -60px auto 0px auto;
+}
+
+.border-info {
+    border-color: var(--main-color) !important;
+}
+
+figure {
+    margin: 0 0;
+}

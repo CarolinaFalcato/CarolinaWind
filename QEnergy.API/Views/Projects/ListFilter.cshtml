@@ -1,0 +1,45 @@
+﻿@using QEnergy.API.Models.Projects;
+@using QEnergy.API.TextResources;
+@using QEnergy.Core.Domain.Utils;
+@model PaginatedList<ProjectListViewModel>
+
+<div class="container-filter">
+    <form asp-action="UpdateProjectsList" asp-controller="Projects" data-ajax="true" data-ajax-method="POST"
+          data-ajax-begin="onBeginSubmit" data-ajax-complete="onCompleteSubmit" data-ajax-update="#projectsTable"
+          data-ajax-loading="#divSpinnerResults" accept-charset="utf-8"
+          id="searchForm" class="form-filter">
+        <div class="row">
+            <div class="col-2">
+                <div class="form-outline">
+                    @Html.TextBox("projectNameFilter", @ViewData["ProjectNameFilter"], new { @class = "form-control", id = "projectNameFilter" })
+                    @Html.Label("projectNameFilter", @TextResources.Projects_ProjectName, new { Class = "form-label" })
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-outline">
+                    @Html.TextBox("projectNumberFilter", @ViewData["ProjectNumberFilter"], new { @class = "form-control", id = "projectNumberFilter" })
+                    @Html.Label("projectNumberFilter", @TextResources.Projects_ProjectNumber, new { Class = "form-label" })
+                </div>
+            </div>
+            <div class="col-2">
+                @Html.Hidden("dateFromSelected")
+                <div class="form-outline datepicker" data-mdb-inline="true">
+                    @Html.TextBox("dateFromFilter", @ViewData["DateFromFilter"], new { @class = "form-control", id = "dateFromFilter", placeholder = "dd/mm/yyyy" })
+                    @Html.Label("dateFromFilter", @TextResources.Projects_DateFrom, new { Class = "form-label" })
+                </div>
+            </div>
+            <div class="col-2">
+                @Html.Hidden("dateToSelected")
+                <div class="form-outline datepicker" data-mdb-inline="true">
+                    @Html.TextBox("dateToFilter", @ViewData["DateToFilter"], new { @class = "form-control", id = "dateToFilter", placeholder = "dd/mm/yyyy" })
+                    @Html.Label("dateToFilter", @TextResources.Projects_DateTo, new { Class = "form-label" })
+                </div>
+            </div>
+            <div class="col-3 d-flex align-items-end gap-1">
+                <button class="btn btn-default" type="submit"><i class="fas fa-filter"></i>&nbsp;@TextResources.Filter_Filter</button>
+                <button class="btn btn-secondary" type="reset" onclick="removeFilter()"><i class="fas fa-trash"></i>&nbsp;@TextResources.Filter_Clean</button>
+            </div>
+        </div>
+    </form>
+</div>
+

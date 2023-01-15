@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QEnergy.API</name>
+    </assembly>
+    <members>
+        <member name="M:QEnergy.API.Controllers.API.AuthorizationController.Authorization(QEnergy.Core.Domain.Models.Authorization.AuthorizationModel)">
+            <summary>
+            Get JWT authorization token 
+            </summary>
+            <remarks>
+            Get JWT authorization token by providing the client ApiKey and ApiSecret. If successful, a JWT authorization token will be retrieved
+            </remarks>
+            <param name="authorizationModel">The client data (ApiKey and ApiSecret)</param>
+            <returns>JWT authorization token</returns>
+            <response code="200">Returns a JWT authorization token</response>   
+            <response code="400">Invalid client credentials</response> 
+            <response code="500">Internal Server Error</response>         
+        </member>
+        <member name="M:QEnergy.API.Controllers.API.ProjectsController.Get">
+            <summary>
+            Gets the projects list
+            </summary>
+            <remarks>
+            Gets the projects list
+            </remarks>
+            <returns>The list of all projects not deleted</returns>
+            <response code="200">The list of all projects not deleted</response>   
+            <response code="400">Invalid query parameters</response> 
+            <response code="401">Unauthorized</response> 
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:QEnergy.API.Controllers.API.ProjectsController.Add(QEnergy.API.Models.Projects.CreateProjectRequest)">
+            <summary>
+            Add a new project
+            </summary>
+            <remarks>
+            Add a new project
+            </remarks>
+            <param name="createProjectRequest">The new project data</param>
+            <returns>The created project identifier</returns>
+            <response code="200">Returns the created project identifier</response>   
+            <response code="400">Invalid query parameters</response> 
+            <response code="401">Unauthorized</response> 
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:QEnergy.API.Controllers.API.ProjectsController.Get(System.Int32)">
+            <summary>
+            Get a specific project by Id
+            </summary>
+            <remarks>
+            Get a specific project by Id
+            </remarks>
+            <param name="id">The project identifier</param>
+            <returns>The project corresponding with the identifier</returns>
+            <response code="200">The project corresponding with the identifier</response>   
+            <response code="400">Invalid query parameters</response> 
+            <response code="401">Unauthorized</response> 
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:QEnergy.API.Controllers.API.ProjectsController.Update(System.Int32,QEnergy.API.Models.Projects.UpdateProjectRequest)">
+            <summary>
+            Update a project
+            </summary>
+            <remarks>
+            Update a project
+            </remarks>
+            <param name="id">The project identifier</param>
+            <param name="updateProjectRequest">The project updated data</param>
+            <returns>A boolean with the result of the operation</returns>
+            <response code="200">Returns a boolean with the result of the operation</response>   
+            <response code="400">Invalid query parameters</response> 
+            <response code="401">Unauthorized</response> 
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:QEnergy.API.Controllers.API.ProjectsController.Delete(System.Int32)">
+            <summary>
+            Remove a project
+            </summary>
+            <remarks>
+            Remove a project
+            </remarks>
+            <param name="id">The project identifier</param>
+            <returns>A boolean with the result of the operation</returns>
+            <response code="200">Returns a boolean with the result of the operation</response>   
+            <response code="400">Invalid query parameters</response> 
+            <response code="401">Unauthorized</response> 
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.EndpointDescription">
+            <summary>
+            <para>QEnergy API v1</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.EndpointUrl">
+            <summary>
+            <para>/swagger/v1/swagger.json</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.ContactName">
+            <summary>
+            <para>QEnergy API Developers</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.ContactUrl">
+            <summary>
+            <para>https://qenergy.eu/solutions/es/contacto/</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.DocNameV1">
+            <summary>
+            <para>v1</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.DocInfoTitle">
+            <summary>
+            <para>QEnergy API</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.DocInfoVersion">
+            <summary>
+            <para>v1</para>
+            </summary>
+        </member>
+        <member name="F:QEnergy.API.SwaggerConfiguration.DocInfoDescription">
+            <summary>
+            <para>QEnergy API v1</para>
+            </summary>
+        </member>
+        <member name="T:QEnergy.API.TextResources.TextResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Base_Accept">
+            <summary>
+              Looks up a localized string similar to Accept.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Base_Cancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Base_Loading">
+            <summary>
+              Looks up a localized string similar to Loading....
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Base_NoResultFound">
+            <summary>
+              Looks up a localized string similar to No result found.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Base_RequiredField">
+            <summary>
+              Looks up a localized string similar to Required field.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Filter_Clean">
+            <summary>
+              Looks up a localized string similar to Clean.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Filter_Filter">
+            <summary>
+              Looks up a localized string similar to Filter.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Layout_Logout">
+            <summary>
+              Looks up a localized string similar to Logout.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_ForgotPassword">
+            <summary>
+              Looks up a localized string similar to Forgot password?.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_InvalidCredentials">
+            <summary>
+              Looks up a localized string similar to Invalid credentials.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_Password">
+            <summary>
+              Looks up a localized string similar to Password.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_RememberPassword">
+            <summary>
+              Looks up a localized string similar to Remember password.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_SignIn">
+            <summary>
+              Looks up a localized string similar to Sign in.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_Title">
+            <summary>
+              Looks up a localized string similar to Log in.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Login_Username">
+            <summary>
+              Looks up a localized string similar to Username.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Pagination_First">
+            <summary>
+              Looks up a localized string similar to First.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Pagination_Last">
+            <summary>
+              Looks up a localized string similar to Last.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Pagination_Next">
+            <summary>
+              Looks up a localized string similar to Next.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Pagination_Previous">
+            <summary>
+              Looks up a localized string similar to Previous.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Pagination_Text">
+            <summary>
+              Looks up a localized string similar to Showing [RECORD_MIN] to [RECORD_MAX] of [TOTAL_RECORDS] results.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ProjectDealTypes_Asset">
+            <summary>
+              Looks up a localized string similar to Asset.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ProjectDealTypes_Share">
+            <summary>
+              Looks up a localized string similar to Share.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_AcquisitionDate">
+            <summary>
+              Looks up a localized string similar to Acquisition date.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_AddNew">
+            <summary>
+              Looks up a localized string similar to Add new.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Company">
+            <summary>
+              Looks up a localized string similar to Company.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_DateFrom">
+            <summary>
+              Looks up a localized string similar to Date from.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_DateTo">
+            <summary>
+              Looks up a localized string similar to Date to.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_DealType">
+            <summary>
+              Looks up a localized string similar to Deal type.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Delete">
+            <summary>
+              Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Edit">
+            <summary>
+              Looks up a localized string similar to Edit.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Group">
+            <summary>
+              Looks up a localized string similar to Group.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Id">
+            <summary>
+              Looks up a localized string similar to Id.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Info">
+            <summary>
+              Looks up a localized string similar to WTG info.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Kw">
+            <summary>
+              Looks up a localized string similar to kW.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_MonthsAquired">
+            <summary>
+              Looks up a localized string similar to Months acquired.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Name">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Number3lCode">
+            <summary>
+              Looks up a localized string similar to 3l code.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_ProjectName">
+            <summary>
+              Looks up a localized string similar to Project name.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_ProjectNumber">
+            <summary>
+              Looks up a localized string similar to Project number.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_RemoveProject">
+            <summary>
+              Looks up a localized string similar to The project will be removed. Are you sure?.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_Status">
+            <summary>
+              Looks up a localized string similar to Status.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_WTGInfo">
+            <summary>
+              Looks up a localized string similar to WTG Info.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Projects_WTGNumbers">
+            <summary>
+              Looks up a localized string similar to WTG numbers.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ProjectsList_Title">
+            <summary>
+              Looks up a localized string similar to Projects.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ProjectStatuses_Aquisition">
+            <summary>
+              Looks up a localized string similar to Aquisition.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ProjectStatuses_InDevelopment">
+            <summary>
+              Looks up a localized string similar to In development.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.ProjectStatuses_Operating">
+            <summary>
+              Looks up a localized string similar to Operating.
+            </summary>
+        </member>
+        <member name="P:QEnergy.API.TextResources.TextResources.Table_ColumnActions">
+            <summary>
+              Looks up a localized string similar to Actions.
+            </summary>
+        </member>
+    </members>
+</doc>

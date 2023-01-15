@@ -1,0 +1,13 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    string cLayout = "";
+    if (controller == "login"/* || isApplicant*/)
+    {
+        cLayout = "_LayoutClean";
+    }
+    else
+    {
+        cLayout = "_Layout";
+    }
+    Layout = cLayout;
+}

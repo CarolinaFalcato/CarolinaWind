@@ -1,0 +1,39 @@
+﻿@using QEnergy.API.Models.Projects;
+@using QEnergy.API.TextResources;
+@model ProjectViewModel;
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="verificationLinkModalLabel">@TextResources.Projects_WTGInfo</h4>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row mt-3 mb-1">
+            <div class="col-12 d-flex align-items-center flex-wrap mb-3">
+                <strong>@TextResources.Projects_ProjectName:&nbsp;</strong>@Model.Name
+            </div>
+            <div class="col-12 d-flex align-items-center flex-wrap mb-3">
+                <strong>@TextResources.Projects_ProjectNumber:&nbsp;</strong>@Model.ProjectNumber
+            </div>
+            <div class="col-12 d-flex align-items-center flex-wrap mb-3">
+                <strong>@TextResources.Projects_AcquisitionDate:&nbsp;</strong>@(Model.AcquisitionDate.HasValue ? Model.AcquisitionDate.Value.ToString("d") : "-")
+            </div>
+            <div class="col-12 d-flex align-items-center flex-wrap mb-3">
+                <strong>@TextResources.Projects_WTGNumbers:&nbsp;</strong>@Model.WTGNumbers
+            </div>
+            <div class="col-12 d-flex align-items-center flex-wrap mb-3">
+                <strong>@TextResources.Projects_Kw:&nbsp;</strong>@Model.Kw
+            </div>
+            <div class="col-12 d-flex align-items-center flex-wrap mb-3">
+                <strong>@TextResources.Projects_MonthsAquired:&nbsp;</strong>@(Model.MonthsAquired.HasValue ? Model.MonthsAquired.Value : "-")
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-mdb-dismiss="modal">
+            @TextResources.Base_Accept
+        </button>
+    </div>
+</div>
+

@@ -1,0 +1,177 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /*margin-bottom: 60px;*/
+    background-color: #fbfbfb;
+}
+
+.body-container {
+    padding-top: 15px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 15px;
+}
+
+#intro {
+    background-image: url(https://aeeolica.org/wp-content/uploads/2022/11/Amanecer-Eolico_Andres-Fernandez-Rios-scaled.jpg);
+    height: 100vh;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #intro {
+        margin-top: -58.59px;
+    }
+}
+
+.navbar {
+    background: #fbfbfb;
+    color: #efefef;
+}
+
+    .navbar a {
+        color: white;
+    }
+
+    .navbar .dropdown-menu a {
+        color: #fbfbfb;
+    }
+
+    .navbar .nav-link {
+        color: var(--main-color) !important;
+    }
+
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+    color: white;
+    font-weight: bold;
+}
+
+a .navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: var(--main-color);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+
+.btn-default, .btn.btn-default:focus, .btn.btn-default.focus, .btn.btn-default:active, .btn.btn-default.active {
+    background-color: var(--main-color) !important;
+    color: white !important;
+}
+
+.btn.btn-default:hover, .open > .btn.btn-default.dropdown-toggle {
+    filter: brightness(70%);
+    background: var(--main-color);
+    border-color: var(--main-color);
+    color: white;
+}
+
+.field-validation-error {
+    color: var(--error-color);
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.form-control.is-invalid,
+.form-control.input-validation-error {
+    margin-bottom: 0px;
+}
+
+.main-color {
+    color: var(--main-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+.table {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+    .table th,
+    .table td,
+    .table > thead > tr > th,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th,
+    .table > thead > tr > td,
+    .table > tbody > tr > td,
+    .table > tfoot > tr > td {
+        line-height: 18px;
+        vertical-align: middle;
+    }
+
+/*
+    Pagination
+-----------------------------------------------*/
+
+.page-item .page-link {
+    color: #fff !important;
+    font-weight: normal;
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+.page-item.active .page-link {
+    font-weight: bold;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}
+
+.page-item.disabled .page-link {
+    color: #fff !important;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.pagination {
+    margin-top: 0px !important;
+}

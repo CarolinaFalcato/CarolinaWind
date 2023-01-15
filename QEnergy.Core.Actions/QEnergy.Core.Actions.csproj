@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QEnergy.Core.Domain.Mappers\QEnergy.Core.Domain.Mappers.csproj" />
+    <ProjectReference Include="..\QEnergy.Core.Domain\QEnergy.Core.Domain.csproj" />
+    <ProjectReference Include="..\QEnergy.Services.Persistence.EntityFramework\QEnergy.Services.Persistence.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>

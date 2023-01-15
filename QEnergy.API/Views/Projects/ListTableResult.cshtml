@@ -1,0 +1,327 @@
+﻿@using QEnergy.API.Models.Projects;
+@using QEnergy.API.TextResources;
+@using QEnergy.Core.Domain.Utils;
+@model PaginatedList<ProjectListViewModel>
+
+@{
+    var currentSort = ViewData["CurrentSort"] != null ? ViewData["CurrentSort"].ToString() : null;
+    var showImage = ViewData["ShowImage"] != null ?  Boolean.Parse(ViewData["ShowImage"].ToString()) : false;
+}
+@if (Model == null || !Model.Any())
+{
+    <div class="card border-primary mb-3">
+        <div class="card-body text-primary text-center">
+            <p class="card-text">@TextResources.Base_NoResultFound</p>
+        </div>
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["IdSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_Id
+                        @if (currentSort == null)
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "Id")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-2 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["NameSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_Name
+                        @if (currentSort == "Name")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "name_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["ProjectNumberSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_ProjectNumber
+                        @if (currentSort == "ProjectNumber")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "projectNumber_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-2 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["AcquisitionDateSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_AcquisitionDate
+                        @if (currentSort == "AcquisitionDate")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "acquisitionDate_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["Number3lCodeSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_Number3lCode
+                        @if (currentSort == "Number3lCode")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "number3lCode_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["DealTypeSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_DealType
+                        @if (currentSort == "DealType")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "dealType_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["GroupSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_Group
+                        @if (currentSort == "Group")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "group_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["StatusSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_Status
+                        @if (currentSort == "Status")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "status_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1 text-center">
+                    <a href="#" onclick="getTableResults('@ViewData["CompanyIdSortParm"]', @(Model.PageIndex))">
+                        @TextResources.Projects_Company
+                        @if (currentSort == "CompanyId")
+                        {
+                            <i class="fas fa-sort-up"></i>
+                        }
+                        else if (currentSort == "companyId_desc")
+                        {
+                            <i class="fas fa-sort-down"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sort"></i>
+                        }
+                    </a>
+                </th>
+                <th class="col-1">
+                    @TextResources.Table_ColumnActions
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr class="d-flex">
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    @item.Id
+                </td>
+                <td class="col-2 d-flex justify-content-center align-items-center">
+                    @item.Name
+                </td>
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    @item.ProjectNumber
+                </td>
+                <td class="col-2 d-flex justify-content-center align-items-center">
+                    @(item.AcquisitionDate.HasValue ? item.AcquisitionDate.Value.ToString("d") : "-")
+                </td>
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    @item.Number3lCode
+                </td>
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    <i class="fa-2x @item.DealTypeIconDescription.Icon" data-mdb-toggle="tooltip" data-mdb-placement="right" title="@item.DealTypeIconDescription.Description"></i>
+                </td>
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    @item.Group
+                </td>
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    <i class="fa-2x @item.StatusIconDescription.Icon" data-mdb-toggle="tooltip" data-mdb-placement="right" title="@item.StatusIconDescription.Description"></i>
+                </td>
+                <td class="col-1 d-flex justify-content-center align-items-center">
+                    @item.CompanyId
+                </td>
+                <td class="col-1">
+                    <button type="button" class="btn btn-success btn-xs" onclick="showWTGModal('@item.Id')" title="@TextResources.Projects_Info">
+                        <i class="fas fa-wind"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" onclick="" title="@TextResources.Projects_Edit" disabled>
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs popconfirm-toggle me-1" id="@item.Id"
+                    data-mdb-popconfirm-mode="modal"
+                    data-mdb-popconfirm-icon="fas fa-trash-alt"
+                    data-mdb-message="@TextResources.Projects_RemoveProject"
+                    data-mdb-ok-text="@TextResources.Base_Accept"
+                    data-mdb-cancel-text="@TextResources.Base_Cancel">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </table>
+
+    @Html.Hidden("pageIndex", Model.PageIndex)
+
+    <!-- Modal -->
+    <div class="modal fade" id="wtgModal" tabindex="-1" aria-labelledby="wtgModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="wtgModalDialog">
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-6">
+        @await Html.PartialAsync("ListTablePagination")
+    </div>
+    <div class="col-6 text-end">
+        <button type="button" class="btn btn-default btn-sm disabled" onclick="location.href='@Url.Action("AddProject", "Projects")'" disabled>
+            <i class="fas fa-plus"></i>
+            @TextResources.Projects_AddNew
+        </button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function getTableResults(sortField, pageNumber) {
+        var pageIndex = pageNumber == null ? document.getElementById('pageIndex').value : pageNumber;
+        var request = {
+            dateFromFilter: document.getElementById('dateFromFilter') != null ? document.getElementById('dateFromFilter').value : '',
+            dateToFilter: document.getElementById('dateToFilter') != null ? document.getElementById('dateToFilter').value : '',
+            nameFilter: document.getElementById('projectNameFilter') != null ? document.getElementById('projectNameFilter').value : '',
+            projectNumberFilter: document.getElementById('projectNumberFilter') != null ? document.getElementById('projectNumberFilter').value : '',
+            sortField: sortField,
+            pageNumber: pageIndex,
+        };
+
+        onBeginSubmit();
+
+        $.ajax({
+            url: '@Url.Action("UpdateProjectsList", "Projects")',
+            type: 'POST',
+            cache: false,
+            async: true,
+            data: request,
+            success: function (result) {
+                $('#projectsTable').html(result);
+                onCompleteSubmit();
+                $('#pageIndex').val(pageIndex);
+            },
+            error: function (result) {
+                onCompleteSubmit();
+                alert('Error: ' + result.responseText);
+            }
+        });
+    }
+
+    function removeProject(projectId) {
+        var request = {
+        projectId: projectId
+        };
+
+        $.ajax({
+            url: '@Url.Action("RemoveProject", "Projects")',
+            type: 'POST',
+            cache: false,
+            async: true,
+            data: request,
+            success: function (result) {
+                if(!result){
+                    alert('Error');
+                } else {
+                    getTableResults(null, null);
+                }
+            },
+            error: function (result) {
+                alert('Error: ' + result.responseText);
+                initializePopConfirm();
+            }
+        });
+    }
+
+    function showWTGModal(id) {
+        $.ajax({
+            url: '@Url.Action("GetWTGModal", "Projects")/' + id,
+            type: 'GET',
+            cache: false,
+            async: true,
+            success: function (result) {
+                $('#wtgModalDialog').html(result);
+                $('#wtgModal').modal('show');
+            },
+            error: function (result) {
+                alert('Error: ' + result.responseText);
+            }
+        });
+    }
+
+</script>

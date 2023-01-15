@@ -1,0 +1,8 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+:root {
+    --main-color: #2c74b7;
+    --secondary-color: #7c7a7d;
+    --error-color: #C10841;
+}

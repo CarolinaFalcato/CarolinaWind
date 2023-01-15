@@ -1,0 +1,53 @@
+﻿@using QEnergy.API.Models.Projects;
+@using QEnergy.API.TextResources;
+@using QEnergy.API.Utils.Consts;
+@using QEnergy.Core.Domain.Utils;
+@model PaginatedList<ProjectListViewModel>
+
+@if (Model != null && Model.Any())
+{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item">
+                <a href="#" class="page-link" onclick="getTableResults('@ViewData["CurrentSort"]', 1)">
+                    @TextResources.Pagination_First
+                </a>
+            </li>
+            <li class="page-item @prevDisabled">
+                <a href="#" class="page-link" onclick="getTableResults('@ViewData["CurrentSort"]', @(Model.PageIndex - 1))" aria-disabled="@(!Model.HasPreviousPage)">
+                    @TextResources.Pagination_Previous
+                </a>
+            </li>
+            @{
+                var minPage = Model.PageIndex < Consts.MAX_SHOWED_PAGES ? 1 : (Model.PageIndex == Model.TotalPages ? (Model.TotalPages - Consts.MAX_SHOWED_PAGES + 1) : Model.PageIndex - 2);
+                var maxPage = Model.TotalPages <= Consts.MAX_SHOWED_PAGES ? Model.TotalPages : (minPage + Consts.MAX_SHOWED_PAGES - 1);
+            }
+            @for (int i = minPage; i < (maxPage + 1); i++)
+            {
+                var currentPageActive = Model.PageIndex == i ? "active" : "";
+                <li class="page-item @currentPageActive">
+                    <a href="#" class="page-link" onclick="getTableResults('@ViewData["CurrentSort"]', @i)">@i</a>
+                </li>
+            }
+            <li class="page-item @nextDisabled">
+                <a href="#" class="page-link" onclick="getTableResults('@ViewData["CurrentSort"]', @(Model.PageIndex + 1))" aria-disabled="@(!Model.HasNextPage)">
+                    @TextResources.Pagination_Next
+                </a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link" onclick="getTableResults('@ViewData["CurrentSort"]', @(Model.TotalPages))">
+                    @TextResources.Pagination_Last
+                </a>
+            </li>
+            @{
+                var minResult = ((Model.PageIndex - 1) * Consts.MAX_RESULTS_PER_PAGE) + 1;
+                var maxResult = (Model.TotalItems - minResult) <= Consts.MAX_RESULTS_PER_PAGE ? Model.TotalItems : (minResult + Consts.MAX_RESULTS_PER_PAGE - 1);
+                var paginationText = TextResources.Pagination_Text.Replace("[RECORD_MIN]", minResult.ToString()).Replace("[RECORD_MAX]", maxResult.ToString()).Replace("[TOTAL_RECORDS]", Model.TotalItems.ToString());
+            }
+            <li><span>@paginationText</span></li>
+        </ul>
+    </nav>
+}
