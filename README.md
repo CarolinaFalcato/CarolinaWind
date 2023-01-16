@@ -10,7 +10,7 @@ Fullstack development task project about wind developed using framework .NET 6.0
 
 ## Project status
 <h4 align="center">
-:construction: Proyecto en construcción :construction:
+:construction: Project under construction :construction:
 </h4>
 
 ## 📁 Setup:
